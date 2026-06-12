@@ -29,14 +29,16 @@ export default defineConfig({
           label: '作品',
           items: [
             { label: '乌鸦的游记', link: '/works/crow-travelogue/' },
-            { label: '沂水春风', link: '/works/yishui-spring-breeze/' },
-            { label: '三国的第二次落幕', link: '/works/three-kingdoms-fall/' },
-            { label: '世界是草台班子', link: '/works/cardboard-world/' },
           ],
         },
         {
           label: '札记',
-          items: [{ autogenerate: { directory: 'notes' } }],
+          items: [
+            { label: '把个人主页做成一间安静的档案馆', link: '/notes/making-an-archive/' },
+            { label: '沂水春风', link: '/notes/yishui-spring-breeze/' },
+            { label: '三国的第二次落幕', link: '/notes/three-kingdoms-fall/' },
+            { label: '世界是草台班子', link: '/notes/cardboard-world/' },
+          ],
         },
       ],
     }),
