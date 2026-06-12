@@ -1,0 +1,202 @@
+:root {
+  color-scheme: light;
+  --sl-font: ui-serif, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, "Songti SC", SimSun, serif;
+  --sl-font-system: ui-serif, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, "Songti SC", SimSun, serif;
+  --sl-content-width: 48rem;
+  --sl-sidebar-width: 17rem;
+
+  --archive-bg: #f3eadc;
+  --archive-panel: #f8f0e3;
+  --archive-ink: #33291f;
+  --archive-ink-strong: #211b14;
+  --archive-muted: #6d5e4f;
+  --archive-line: rgba(47, 39, 30, 0.16);
+  --archive-accent: #8c4f39;
+  --archive-accent-soft: rgba(140, 79, 57, 0.12);
+  --archive-shadow: rgba(47, 39, 30, 0.12);
+
+  --sl-color-white: #fff8ed;
+  --sl-color-gray-1: #211b14;
+  --sl-color-gray-2: #3b3025;
+  --sl-color-gray-3: #6d5e4f;
+  --sl-color-gray-4: #9c8d7c;
+  --sl-color-gray-5: #d0c0aa;
+  --sl-color-gray-6: #eadfce;
+  --sl-color-gray-7: #f8f0e3;
+  --sl-color-black: #16110d;
+  --sl-color-accent-low: #ead3bf;
+  --sl-color-accent: #7b432f;
+  --sl-color-accent-high: #3d2117;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --archive-bg: #211b14;
+  --archive-panel: #282119;
+  --archive-ink: #eadfce;
+  --archive-ink-strong: #fff4e3;
+  --archive-muted: #c9b9a2;
+  --archive-line: rgba(234, 223, 206, 0.16);
+  --archive-accent: #c48763;
+  --archive-accent-soft: rgba(196, 135, 99, 0.18);
+  --archive-shadow: rgba(0, 0, 0, 0.22);
+
+  --sl-color-white: #fff4e3;
+  --sl-color-gray-1: #f7efe4;
+  --sl-color-gray-2: #eadfce;
+  --sl-color-gray-3: #c9b9a2;
+  --sl-color-gray-4: #a99a88;
+  --sl-color-gray-5: #75695c;
+  --sl-color-gray-6: #3a3026;
+  --sl-color-gray-7: #261f18;
+  --sl-color-black: #15110d;
+  --sl-color-accent-low: #3d2117;
+  --sl-color-accent: #c48763;
+  --sl-color-accent-high: #f3dfcc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --archive-bg: #211b14;
+    --archive-panel: #282119;
+    --archive-ink: #eadfce;
+    --archive-ink-strong: #fff4e3;
+    --archive-muted: #c9b9a2;
+    --archive-line: rgba(234, 223, 206, 0.16);
+    --archive-accent: #c48763;
+    --archive-accent-soft: rgba(196, 135, 99, 0.18);
+    --archive-shadow: rgba(0, 0, 0, 0.22);
+
+    --sl-color-white: #fff4e3;
+    --sl-color-gray-1: #f7efe4;
+    --sl-color-gray-2: #eadfce;
+    --sl-color-gray-3: #c9b9a2;
+    --sl-color-gray-4: #a99a88;
+    --sl-color-gray-5: #75695c;
+    --sl-color-gray-6: #3a3026;
+    --sl-color-gray-7: #261f18;
+    --sl-color-black: #15110d;
+    --sl-color-accent-low: #3d2117;
+    --sl-color-accent: #c48763;
+    --sl-color-accent-high: #f3dfcc;
+  }
+}
+
+html,
+body {
+  background: var(--archive-bg) !important;
+}
+
+body {
+  color: var(--archive-ink);
+}
+
+.header,
+.sidebar-pane,
+.main-pane,
+.content-panel,
+.right-sidebar-panel {
+  background: var(--archive-bg) !important;
+}
+
+.header {
+  border-bottom-color: var(--archive-line) !important;
+}
+
+.site-title {
+  color: var(--archive-accent) !important;
+  letter-spacing: 0;
+}
+
+.sidebar-pane {
+  border-inline-end-color: var(--archive-line) !important;
+}
+
+.content-panel {
+  border-top-color: var(--archive-line) !important;
+}
+
+.right-sidebar-panel {
+  border-inline-start-color: var(--archive-line) !important;
+}
+
+.main-pane,
+.main-pane :where(h1, h2, h3, h4, h5, h6),
+.sl-markdown-content,
+.sl-markdown-content :where(p, li, blockquote, td, th, strong, em),
+.pagination-links a,
+.pagination-links a :where(span, svg),
+.right-sidebar,
+.right-sidebar :where(h2, a, li),
+.sidebar-content a,
+.sidebar-content summary,
+.sidebar-content .large {
+  color: var(--archive-ink) !important;
+}
+
+.main-pane :where(h1, h2, h3),
+.sl-markdown-content :where(h1, h2, h3),
+.right-sidebar h2 {
+  color: var(--archive-ink-strong) !important;
+  letter-spacing: -0.035em;
+  font-weight: 500;
+}
+
+.sl-markdown-content a,
+.right-sidebar a,
+.right-sidebar a:hover,
+.right-sidebar a:focus-visible {
+  color: var(--archive-accent) !important;
+}
+
+.sidebar-content a:hover,
+.sidebar-content a:focus-visible,
+.sidebar-content summary:hover,
+.sidebar-content summary:focus-visible {
+  color: var(--archive-ink-strong) !important;
+  background: var(--archive-accent-soft) !important;
+}
+
+.sidebar-content a[aria-current='page'],
+.sidebar-content a[aria-current='page']:hover,
+.sidebar-content a[aria-current='page']:focus-visible {
+  color: #fff4e3 !important;
+  background: rgba(140, 79, 57, 0.78) !important;
+}
+
+.pagination-links a {
+  background: color-mix(in srgb, var(--archive-panel) 72%, transparent) !important;
+  border-color: var(--archive-line) !important;
+  box-shadow: 0 10px 22px var(--archive-shadow);
+}
+
+.pagination-links a:hover,
+.pagination-links a:focus-visible {
+  background: var(--archive-panel) !important;
+  border-color: color-mix(in srgb, var(--archive-accent) 46%, transparent) !important;
+}
+
+.sl-markdown-content :where(code, pre) {
+  color: var(--archive-ink-strong) !important;
+}
+
+.header :where(button, select),
+.header :where(button, select):hover,
+.header :where(button, select):focus-visible {
+  color: var(--archive-ink) !important;
+  background: color-mix(in srgb, var(--archive-panel) 48%, transparent) !important;
+  border-color: var(--archive-line) !important;
+}
+
+.header option {
+  color: var(--archive-ink) !important;
+  background: var(--archive-panel) !important;
+}
+
+:root[data-theme='dark'] .sidebar-content a[aria-current='page'],
+:root[data-theme='dark'] .sidebar-content a[aria-current='page']:hover,
+:root[data-theme='dark'] .sidebar-content a[aria-current='page']:focus-visible {
+  color: #fff4e3 !important;
+  background: rgba(140, 79, 57, 0.72) !important;
+}
