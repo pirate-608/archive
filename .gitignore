@@ -4,3 +4,4 @@ dist/
 .astro-dev*.log
 references/
 demo/
+**/.obsidian/
