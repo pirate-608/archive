@@ -1,9 +1,47 @@
+---
+interface NavItem {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  brand?: string;
+  brandHref?: string;
+  brandLabel?: string;
+  nav?: NavItem[];
+  languageHref?: string;
+  languageLabel?: string;
+  languageAriaLabel?: string;
+}
+
+const {
+  brand = '舞雩台',
+  brandHref = '/',
+  brandLabel = '舞雩台首页',
+  nav = [
+    { href: '/archive/', label: '档案' },
+    { href: '#works', label: '作品' },
+    { href: '#notes', label: '札记' },
+    { href: '#now', label: '近况' },
+  ],
+  languageHref,
+  languageLabel,
+  languageAriaLabel = 'Switch language',
+} = Astro.props;
+---
+
 <header class="site-header">
-  <a class="brand" href="/" aria-label="舞雩台首页">舞雩台</a>
-  <nav class="nav" aria-label="主导航">
-    <a href="/archive/">Archive</a>
-    <a href="#works">Works</a>
-    <a href="#notes">Notes</a>
-    <a href="#now">Now</a>
-  </nav>
+  <a class="brand" href={brandHref} aria-label={brandLabel}>{brand}</a>
+  <div class="header-actions">
+    <nav class="nav" aria-label="Primary navigation">
+      {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+    {
+      languageHref && languageLabel && (
+        <a class="language-switch" href={languageHref} aria-label={languageAriaLabel}>
+          {languageLabel}
+        </a>
+      )
+    }
+  </div>
 </header>

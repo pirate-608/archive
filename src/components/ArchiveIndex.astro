@@ -1,32 +1,67 @@
 ---
 import WorkCard from './WorkCard.astro';
 
-const works = [
-  {
-    index: '01',
-    title: '乌鸦的游记',
-    text: '从一个死去流浪者的口袋里，你能翻到什么......',
-    href: '/works/legend-of-vashain/',
-  },
-  {
-    index: '02',
-    title: '三国的第二次落幕',
-    text: '一次在公元280年，一次在童年结束的时候。',
-    href: '/notes/three-kingdoms-fall/',
-  },
-  {
-    index: '03',
-    title: '世界是草台班子',
-    text: '现实像一座不断打补丁的旧建筑。',
-    href: '/notes/cardboard-world/',
-  },
-];
+interface Work {
+  index: string;
+  title: string;
+  text: string;
+  href: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  works?: Work[];
+  nowEyebrow?: string;
+  nowTitle?: string;
+  nowItems?: string[];
+  notesEyebrow?: string;
+  notesHref?: string;
+  notesLabel?: string;
+  notesTitle?: string;
+}
+
+const {
+  eyebrow = '选段',
+  title = '一些正在形成的东西',
+  works = [
+    {
+      index: '01',
+      title: '乌鸦的游记',
+      text: '从一个死去流浪者的口袋里，你能翻到什么......',
+      href: '/works/legend-of-vashain/',
+    },
+    {
+      index: '02',
+      title: '三国的第二次落幕',
+      text: '一次在公元280年，一次在童年结束的时候。',
+      href: '/notes/three-kingdoms-fall/',
+    },
+    {
+      index: '03',
+      title: '世界是草台班子',
+      text: '现实像一座不断打补丁的旧建筑。',
+      href: '/notes/cardboard-world/',
+    },
+  ],
+  nowEyebrow = '近况',
+  nowTitle = '最近在想',
+  nowItems = [
+    '如何把个人主页做成一间安静的档案馆。',
+    'AI 公司从挑战者变成权力本身时，人为什么会失落。',
+    '那些没有写完的故事，是否也有保存的价值。',
+  ],
+  notesEyebrow = '札记',
+  notesHref = '/notes/making-an-archive/',
+  notesLabel = '一则开馆札记',
+  notesTitle = '把个人主页做成一间安静的档案馆',
+} = Astro.props;
 ---
 
 <section class="works" id="works">
   <div class="section-head">
-    <p class="eyebrow">Selected fragments</p>
-    <h2>一些正在形成的东西</h2>
+    <p class="eyebrow">{eyebrow}</p>
+    <h2>{title}</h2>
   </div>
 
   <div class="work-grid">
@@ -36,20 +71,18 @@ const works = [
 
 <section class="now" id="now">
   <div>
-    <p class="eyebrow">Now</p>
-    <h2>最近在想</h2>
+    <p class="eyebrow">{nowEyebrow}</p>
+    <h2>{nowTitle}</h2>
   </div>
   <ul>
-    <li>如何把个人主页做成一间安静的档案馆。</li>
-    <li>AI 公司从挑战者变成权力本身时，人为什么会失落。</li>
-    <li>那些没有写完的故事，是否也有保存的价值。</li>
+    {nowItems.map((item) => <li>{item}</li>)}
   </ul>
 </section>
 
 <section class="notes-band" id="notes">
-  <p class="eyebrow">Notes</p>
-  <a href="/notes/making-an-archive/">
-    <span>一则开馆札记</span>
-    <strong>把个人主页做成一间安静的档案馆</strong>
+  <p class="eyebrow">{notesEyebrow}</p>
+  <a href={notesHref}>
+    <span>{notesLabel}</span>
+    <strong>{notesTitle}</strong>
   </a>
 </section>

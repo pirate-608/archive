@@ -1,5 +1,17 @@
-<section class="expanding-art-section" aria-label="沂水春风">
+---
+interface Props {
+  href?: string;
+  label?: string;
+}
+
+const {
+  href = '/notes/yishui-spring-breeze/',
+  label = '进入沂水春风札记页',
+} = Astro.props;
+---
+
+<section class="expanding-art-section" aria-label={label}>
   <div class="expanding-art-wrap">
-    <a class="expanding-art" id="expandingArt" href="/notes/yishui-spring-breeze/" aria-label="进入沂水春风札记页"></a>
+    <a class="expanding-art" id="expandingArt" href={href} aria-label={label}></a>
   </div>
 </section>

@@ -7,15 +7,15 @@ import ArchiveLayout from '../layouts/ArchiveLayout.astro';
 ---
 
 <ArchiveLayout title="舞雩台 | Rain Altar Archive">
-  <Header />
+  <Header languageHref="/en/" languageLabel="EN" languageAriaLabel="Switch to English" />
   <main>
     <TypingHero />
     <ExpandingImage />
     <ArchiveIndex />
   </main>
   <footer class="footer" id="about">
-    <p>A small archive for unfinished thoughts.</p>
-    <p>Built with Astro and Starlight.</p>
+    <p>一间存放未竟之思的小档案馆。</p>
+    <p>以 Astro 与 Starlight 搭建。</p>
   </footer>
   <script is:inline src="/scripts/home.js"></script>
 </ArchiveLayout>

@@ -1,0 +1,86 @@
+---
+import ArchiveIndex from '../../components/ArchiveIndex.astro';
+import ExpandingImage from '../../components/ExpandingImage.astro';
+import Header from '../../components/Header.astro';
+import TypingHero from '../../components/TypingHero.astro';
+import ArchiveLayout from '../../layouts/ArchiveLayout.astro';
+
+const nav = [
+  { href: '/en/archive/', label: 'Archive' },
+  { href: '#works', label: 'Works' },
+  { href: '#notes', label: 'Notes' },
+  { href: '#now', label: 'Now' },
+];
+
+const heroLines = [
+  'Keeping unnamed things in the wind.',
+  'Writing unfinished worlds on the back of paper.',
+  'Letting stories appear slowly, like words on wet stone.',
+];
+
+const works = [
+  {
+    index: '01',
+    title: 'Crow’s Travelogue',
+    text: 'What can you find in the pocket of a dead wanderer?',
+    href: '/en/works/legend-of-vashain/',
+  },
+  {
+    index: '02',
+    title: 'The Second Fall of the Three Kingdoms',
+    text: 'Once in AD 280, and once when childhood ended.',
+    href: '/en/notes/three-kingdoms-fall/',
+  },
+  {
+    index: '03',
+    title: 'The World Is Held Together by Tape',
+    text: 'Reality feels like an old building patched again and again.',
+    href: '/en/notes/cardboard-world/',
+  },
+];
+---
+
+<ArchiveLayout
+  title="Rain Altar Archive"
+  description="A quiet archive for fiction, notes, maps, and unfinished worlds."
+  lang="en"
+>
+  <Header
+    brand="Rain Altar"
+    brandHref="/en/"
+    brandLabel="Rain Altar home"
+    nav={nav}
+    languageHref="/"
+    languageLabel="中文"
+    languageAriaLabel="切换到简体中文"
+  />
+  <main>
+    <TypingHero
+      eyebrow="Personal archive / unfinished worlds / quiet notes"
+      lines={heroLines}
+      copy="Fiction, fragments, notes, maps, and worlds still finding their shape. This is not a resume or a display wall, but a quiet room for manuscripts."
+    />
+    <ExpandingImage href="/en/notes/yishui-spring-breeze/" label="Open the Yishui Spring Breeze note" />
+    <ArchiveIndex
+      eyebrow="Selected fragments"
+      title="Things slowly taking shape"
+      works={works}
+      nowEyebrow="Now"
+      nowTitle="Recently Thinking About"
+      nowItems={[
+        'How to make a personal site feel like a quiet archive.',
+        'Why it feels strange when an AI challenger becomes part of the center of power.',
+        'Whether unfinished stories also deserve a place to be kept.',
+      ]}
+      notesEyebrow="Notes"
+      notesHref="/en/notes/making-an-archive/"
+      notesLabel="Opening note"
+      notesTitle="Turning a Personal Site into a Quiet Archive"
+    />
+  </main>
+  <footer class="footer" id="about">
+    <p>A small archive for unfinished thoughts.</p>
+    <p>Built with Astro and Starlight.</p>
+  </footer>
+  <script is:inline src="/scripts/home.js"></script>
+</ArchiveLayout>

@@ -57,11 +57,14 @@ function renderLine(text, mode) {
 
   [...text].forEach((char, index) => {
     const span = document.createElement('span');
-    span.className = `typing-char is-${mode}`;
-    span.textContent = char;
+    const isSpace = /\s/.test(char);
+    span.className = `typing-char${isSpace ? ' typing-space' : ''} is-${mode}`;
+    span.textContent = isSpace ? '\u00a0' : char;
+    span.setAttribute('aria-hidden', 'true');
     span.style.setProperty('--char-delay', `${index * ENTER_STAGGER}ms`);
     typingLine.append(span);
   });
+  typingLine.setAttribute('aria-label', text);
 }
 
 function animateOut() {

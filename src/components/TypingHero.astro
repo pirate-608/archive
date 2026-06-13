@@ -1,19 +1,27 @@
 ---
-const lines = [
-  '在风中保存那些尚未被命名的东西。',
-  '把未完成的世界，悄悄写在纸的背面。',
-  '让故事慢慢显影，像雨后石阶上的字。',
-];
+interface Props {
+  eyebrow?: string;
+  lines?: string[];
+  copy?: string;
+}
+
+const {
+  eyebrow = '个人档案 / 未完成的世界 / 安静的札记',
+  lines = [
+    '在风中保存那些尚未被命名的东西。',
+    '把未完成的世界，悄悄写在纸的背面。',
+    '让故事慢慢显影，像雨后石阶上的字。',
+  ],
+  copy = '小说、构思、札记、地图，以及一些仍在生长的世界。这里不是简历，也不是展示墙，只是一间低声说话的手稿室。',
+} = Astro.props;
 ---
 
 <section class="hero" aria-labelledby="hero-title">
   <div class="hero-grid">
-    <p class="eyebrow">Personal archive / unfinished worlds / quiet notes</p>
+    <p class="eyebrow">{eyebrow}</p>
     <h1 id="hero-title" class="typing-title" data-typing-lines={JSON.stringify(lines)}>
-      <span class="typing-line">在风中保存那些尚未被命名的东西。</span>
+      <span class="typing-line">{lines[0]}</span>
     </h1>
-    <p class="hero-copy">
-      小说、构思、札记、地图，以及一些仍在生长的世界。这里不是简历，也不是展示墙，只是一间低声说话的手稿室。
-    </p>
+    <p class="hero-copy">{copy}</p>
   </div>
 </section>
