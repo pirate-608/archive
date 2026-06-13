@@ -175,61 +175,29 @@ a {
   background-size: cover;
   background-position: center;
   position: relative;
+  text-decoration: none;
+  cursor: pointer;
   transform: scale(0.78);
   will-change: transform, border-radius;
   box-shadow: 0 30px 90px rgba(39, 26, 17, 0.22);
   filter: saturate(0.9) contrast(0.96) brightness(0.98);
-}
-
-.art-entry {
-  position: absolute;
-  right: clamp(22px, 4vw, 64px);
-  bottom: clamp(20px, 4vw, 56px);
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.62em;
-  padding: 0;
-  color: rgba(248, 240, 227, 0.82);
-  font-family: ui-serif, "Iowan Old Style", "Palatino Linotype", Georgia, "Songti SC", SimSun, serif;
-  font-size: clamp(14px, 1.25vw, 18px);
-  letter-spacing: 0.12em;
-  line-height: 1;
-  text-decoration: none;
-  text-shadow: 0 2px 16px rgba(24, 17, 12, 0.72);
   transition:
-    color 220ms ease,
-    transform 220ms ease,
-    opacity 220ms ease;
+    box-shadow 260ms ease,
+    filter 260ms ease;
 }
 
-.art-entry::before {
-  content: "";
-  position: absolute;
-  left: -0.6em;
-  right: -0.62em;
-  bottom: -0.42em;
-  height: 1px;
-  background: currentColor;
-  opacity: 0.34;
-  transform: scaleX(0.82);
-  transform-origin: right;
-  transition:
-    opacity 220ms ease,
-    transform 220ms ease;
-}
-
-.art-entry:hover,
-.art-entry:focus-visible {
-  color: #fff4e3;
-  transform: translateX(3px);
+.expanding-art:hover,
+.expanding-art:focus-visible {
+  filter: saturate(0.96) contrast(0.98) brightness(1.02);
+  box-shadow: 0 34px 98px rgba(39, 26, 17, 0.28);
   outline: none;
 }
 
-.art-entry:hover::before,
-.art-entry:focus-visible::before {
-  opacity: 0.72;
-  transform: scaleX(1);
+.expanding-art:focus-visible {
+  box-shadow:
+    0 0 0 2px rgba(248, 240, 227, 0.78),
+    0 0 0 5px rgba(123, 67, 47, 0.52),
+    0 34px 98px rgba(39, 26, 17, 0.28);
 }
 
 .works,
